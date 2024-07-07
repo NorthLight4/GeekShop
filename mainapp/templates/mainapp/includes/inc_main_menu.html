@@ -1,6 +1,6 @@
 <li><a href="{% url 'main' %}" {% if request.resolver_match_url_name == 'main' %} class ="active" {% endif%} >домой</a></li>
-<li><a href="{% url 'products:index' %}"{% if 'products' in request.resolver_match_url_name %} class ="active" {% endif%} >продукты</a></li>
-<li><a href="{% url 'contact' %}"{% if request.resolver_match_url_name == 'contacts' %} class ="active" {% endif%} >контакты</a></li>
+<li><a href="{% url 'products:index' %}" {% if 'products' in request.resolver_match_url_name %} class ="active" {% endif%} >продукты</a></li>
+<li><a href="{% url 'contact' %}" {% if request.resolver_match_url_name == 'contacts' %} class ="active" {% endif%} >контакты</a></li>
 {% if user.is_authenticated %}
     <li>
         <a href="{% url 'auth:edit' %}">
@@ -19,7 +19,10 @@
 <a href="#" class="search"></a>
 <a href="{% url 'basket:view' %}" class="basket">
     <span>
-        {{ basket }}
+        {% if basket %}
+            {{ basket.0.total_cost|floatformat:0 }} руб ({{ basket.0.total_quantity }}шт)
+        {% endif %}
     </span>
 </a>
+
 

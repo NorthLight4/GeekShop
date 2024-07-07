@@ -10,10 +10,6 @@ class ShopUserLoginForm(AuthenticationForm):
         fields = ('username', 'password',)
 
     def __init__(self, *args, **kwargs):
-        """
-
-        :rtype: object
-        """
         super().__init__(*args, **kwargs)
         for field_name, field in self.fields.items():
             field.widget.attrs['class'] = 'form-control'
