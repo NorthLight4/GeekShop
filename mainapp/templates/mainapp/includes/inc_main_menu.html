@@ -15,3 +15,11 @@
             <a href="{% url 'auth:login' %}">войти</a>
         {% endif %}
     </li>
+</ul>
+<a href="#" class="search"></a>
+<a href="{% url 'basket:view' %}" class="basket">
+    <span>
+        {{ basket }}
+    </span>
+</a>
+
